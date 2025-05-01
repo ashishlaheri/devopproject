@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/yourusername/your-repo.git'  // Use your repo URL
+                git branch: 'main', url: 'https://github.com/ashishlaheri/devopproject.git'  // Use your repo URL
             }
         }
 
