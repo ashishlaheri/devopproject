@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  frontend:
+    build: ./client
+    ports:
+      - "3000:3000"
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+
+  backend:
+    build: ./server
+    ports:
+      - "4000:4000"
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure

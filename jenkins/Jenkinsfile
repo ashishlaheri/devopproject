@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone Repo') {
+            steps {
+                git 'https://github.com/your-username/creative-fullstack-app.git'
+            }
+        }
+
+        stage('Build Docker Images') {
+            steps {
+                sh 'docker build -t creative-frontend:latest ./client'
+                sh 'docker build -t creative-backend:latest ./server'
+            }
+        }
+
+        stage('Deploy with Docker Swarm') {
+            steps {
+                sh 'docker stack deploy -c docker-compose.yml creativeapp'
+            }
+        }
+    }
+}
